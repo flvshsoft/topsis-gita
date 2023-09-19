@@ -50,7 +50,7 @@ $warna5 = "#999999";
                     </a>
                     <div class="profile" style="background: #FFFFFF;display: nonex;">
                         <div class="profile-imagex">
-                            <img src="<?= base_url('public/images/Toko Obat.jpg'); ?>" alt="Flashsoft Indonesia" style="background: white;object-fit: cover;" width="100%" height="300px;" />
+                            <!-- <img src="<?= base_url('public/images/Toko Obat.jpg'); ?>" alt="Flashsoft Indonesia" style="background: white;object-fit: cover;" width="100%" height="300px;" /> -->
                         </div>
                         <div class="profile-data" style="display: none;">
                             <div class="profile-data-name"><?php // isset(session('userData')['nama_pegawai']) ? session('userData')['nama_pegawai'] : session('userData')['username'] 
@@ -77,31 +77,13 @@ $warna5 = "#999999";
                             <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/transaksi"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Transaksi</span></a>
+                            <a href="#<?= base_url() ?>/transaksi"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Peminjam</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/proses"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Proses</span></a>
-                        </li>
-                        <!-- <li>
-                            <a href="<?= base_url() ?>/jenis"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Penyakit</span></a>
+                            <a href="#<?= base_url() ?>/proses"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/solusi"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Solusi</span></a>
-                        </li>
-
-                        <li>
-                            <a href="<?= base_url() ?>/bobot-gejala"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Bobot Gejala</span></a>
-                        </li>
-
-                        <li>
-                            <a href="<?= base_url() ?>/rule"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Basis Pengetahuan</span></a>
-                        </li> -->
-
-                        <!-- <li>
-                            <a href="<?= base_url() ?>/user"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
-                        </li> -->
-                        <li>
-                            <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">About</span></a>
+                            <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out" style="color:<?= $warna2 ?>;"></span><span class="xn-text">Logout</span></a>
                         </li>
 
 

@@ -3,11 +3,14 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use Config\Services;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+
+use App\Models\UserModel;
 
 /**
  * Class BaseController
@@ -35,7 +38,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['form', 'url'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -54,5 +57,11 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->req = Services::request();
+        $this->session = Services::session();
+        $this->calendar = Services::calendar();
+
+        // Inisiasi object Model 
+        $this->modelUser = new UserModel();
     }
 }
