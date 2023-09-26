@@ -11,6 +11,10 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\UserModel;
+use App\Models\PeminjamModel;
+use App\Models\KriteriaModel;
+use App\Models\SubKriteriaModel;
+
 
 /**
  * Class BaseController
@@ -63,5 +67,8 @@ abstract class BaseController extends Controller
 
         // Inisiasi object Model 
         $this->modelUser = new UserModel();
+        $this->modelPeminjam = new PeminjamModel();
+        $this->modelKriteria = new KriteriaModel();
+        $this->modelSubKriteria = new SubKriteriaModel();
     }
 }

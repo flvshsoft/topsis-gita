@@ -77,48 +77,33 @@ $warna5 = "#999999";
                             <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
                         </li>
                         <li>
-                            <a href="#<?= base_url() ?>/transaksi"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Peminjam</span></a>
+                            <a href="<?= base_url() ?>/peminjam"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Peminjam</span></a>
                         </li>
                         <li>
-                            <a href="#<?= base_url() ?>/proses"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
+                            <a href="<?= base_url() ?>/kriteria"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Kriteria</span></a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() ?>/sub-kriteria"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Sub Kriteria</span></a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() ?>/proses"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Proses</span></a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() ?>/user"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
                         </li>
                         <li>
                             <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out" style="color:<?= $warna2 ?>;"></span><span class="xn-text">Logout</span></a>
                         </li>
 
 
-
-                    <?php
-                        // if (true) {
-                    } elseif (session('userData')['level_user'] == 'pemilik' || session('userData')['level_user'] == 1) {
-                    ?>
-
-                        <li>
-                            <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/menu"><span class="fa fa-clone" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Menu</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/proses"><span class="fa fa-clone" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Proses</span></a>
-                        </li>
                     <?php
                     }
                 } else {
                     ?>
-
-                    <li>
-                        <a href="<?= base_url() ?>/admin"><span class="fa fa-clone" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Login</span></a>
-                    </li>
                     <li>
                         <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
                     </li>
-                    <li>
-                        <a href="<?= base_url() ?>/proses"><span class="fa fa-clone" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Diagnosa</span></a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url() ?>/panduan"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Panduan Aplikasi</span></a>
-                    </li>
+                    
                     <li>
                         <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">About</span></a>
                     </li>
