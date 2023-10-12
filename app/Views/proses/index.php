@@ -22,6 +22,7 @@
                                     <th>Jenis Usaha</th>
                                     <th>Periode Pinjam</th>
                                     <th>Total Pinjam</th>
+                                    <th>Tunggakan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,6 +41,7 @@
                                         <td><?= $v['jenis_usaha'] ?></td>
                                         <td><?= number_format($v['total_pinjaman']) ?></td>
                                         <td><?= $v['periode_pinjaman'] ?></td>
+                                        <td><?= $v['tunggakan'] ?></td>
                                     </tr>
                                 <?php
                                 }
@@ -59,6 +61,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
+                                    <th>C5</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,13 +89,15 @@
                                     }
                                     $c3 = $periode_pinjaman;
                                     $c4 = $modelSubKriteria['4'][$value['periode_pinjaman']];
+                                    $c5 = $modelSubKriteria['5'][$value['tunggakan']];
                                     // konversi
                                     $konversiList['1'][] = $c1;
                                     $konversiList['2'][] = $c2;
                                     $konversiList['3'][] = $c3;
                                     $konversiList['4'][] = $c4;
+                                    $konversiList['5'][] = $c5;
                                     // konversi all
-                                    $temp = [$c1, $c2, $c3, $c4];
+                                    $temp = [$c1, $c2, $c3, $c4, $c5];
                                     $konversiAllList[] = $temp;
                                 ?>
                                     <tr id="trow_<?= $no ?>">
@@ -106,7 +111,8 @@
                                             // echo $value['total_pinjaman'];
                                             ?>
                                         </td>
-                                        <td><?= $modelSubKriteria['4'][$value['periode_pinjaman']] ?></td>
+                                        <td><?= $c4 ?></td>
+                                        <td><?= $c5 ?></td>
                                     </tr>
                                 <?php
                                 }
@@ -125,6 +131,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
+                                    <th>C5</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -168,6 +175,15 @@
                                             $normalC1List[] = pow($value, 2);
                                         }
                                         echo $c4 = number_format(sqrt(array_sum($normalC1List)), 5);
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $normalC1List = [];
+                                        foreach ($konversiList['5'] as $key => $value) {
+                                            $normalC1List[] = pow($value, 2);
+                                        }
+                                        echo $c5 = number_format(sqrt(array_sum($normalC1List)), 5);
                                         ?>
                                     </td>
                                 </tr>

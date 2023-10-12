@@ -22,103 +22,83 @@ class SubKriteriaController extends BaseController
 	public function tambah()
 	{
     	$id = 0;
-		$data['judul'] = 'Tambah User';
-		$data['url'] = 'user/tambah';
+		$data['judul'] = 'Tambah Sub Kriteria';
+		$data['url'] = 'sub-kriteria/tambah';
 		$data['id'] = $id;
-		// $data['model'] = $this->modelUser
-		// // ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		// ->where('id_user', $id)
-		// ->find()[0];
+		$data['modelKriteria'] = $this->modelKriteria
+		->orderBy('nama_kriteria')
+		->findAll();
 
-		echo view('/peminjam/tambah', $data);
+		echo view('/sub_kriteria/tambah', $data);
 	}
 
 	public function insertData()
 	{
-		$getRule = $this->modelUser->getRule('insertData');
-		$this->modelUser->setValidationRules($getRule);
-
 		$data = [
-			'username' => $this->request->getPost('username'),
-			'nama_user' => $this->request->getPost('nama_user'),	
-			'password' => $this->request->getPost('password'),	
-			'level_user' => $this->request->getPost('level_user'),	
-			'status_user' => $this->request->getPost('status_user'),						
+			'id_kriteria' => $this->request->getPost('id_kriteria'),
+			'nama_sub_kriteria' => $this->request->getPost('nama_sub_kriteria'),	
+			'bobot' => $this->request->getPost('bobot'),						
 		];
+		// print_r($data);
+		// exit;
 
-		if (!$this->modelUser->save($data)) {
-			return redirect()->back()->withInput()->with('errors', $this->modelUser->errors());
+		if (!$this->modelSubKriteria->save($data)) {
+			return redirect()->back()->withInput()->with('errors', $this->modelSubKriteria->errors());
 		}
 
 		return $this->index();
 	}
 
-	public function logout()
-	{
-		$this->session->set('userData', array('username', 'level_user'));
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
-	public function logoutUser()
-	{
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
 	public function ubah()
 	{
     	$id = $this->req->uri->getSegment(3);
-		$data['judul'] = 'Edit User';
-		$data['url'] = 'user/ubah';
+		$data['judul'] = 'Edit Sub Kriteria';
+		$data['url'] = 'sub-kriteria/ubah';
 		$data['id'] = $id;
-		$data['model'] = $this->modelUser
+		$data['model'] = $this->modelSubKriteria
 		// ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		->where('id_user', $id)
+		->where('id_sub_kriteria', $id)
 		->find()[0];
 
-		// print_r($data['model']);exit;
 		
-		echo view('user/_form', $data);	
+		$data['modelKriteria'] = $this->modelKriteria
+		->orderBy('nama_kriteria')
+		->findAll();
+
+		$kriteria = [];
+		foreach ($data['modelKriteria'] as $key => $value) {
+			$kriteria[$value['id_kriteria']] = $value;
+		}
+		$data['modelKriteria'] = $kriteria;
+
+		// print_r($data['modelKriteria']);exit;
+		
+		echo view('sub_kriteria/ubah', $data);	
 	}
 
 	public function updateData()
 	{
-		$data = array(
-			'id_user'=> $this->request->getPost('id_user'),            
-            'username'=> $this->request->getPost('username'),
-            'nama_user'=> $this->request->getPost('nama_user'),
-            'password'=> $this->request->getPost('password'),
-            'level_user'=> $this->request->getPost('level_user'),
-         
-        );
+		
+		$data = [
+			'id_sub_kriteria' => $this->request->getPost('id_sub_kriteria'),
+			'id_kriteria' => $this->request->getPost('id_kriteria'),
+			'nama_sub_kriteria' => $this->request->getPost('nama_sub_kriteria'),	
+			'bobot' => $this->request->getPost('bobot'),						
+		];
 		
         
-        $this->modelUser->save($data);
+        $this->modelSubKriteria->save($data);
 
         // print_r($data);exit;
 
-        return redirect()->to(base_url().'/user');
+        return redirect()->to(base_url().'/sub-kriteria');
 	}
 
 	public function delete()
 	{
     	$id = $this->req->uri->getSegment(3);
-    	$this->modelUser->delete($id);
-        return redirect('user');
+    	$this->modelSubKriteria->delete($id);
+        return redirect('sub-kriteria');
     	
-	}
-
-	public function akses()
-	{
-    	$id = $this->req->uri->getSegment(3);
-    	$tanggal = $this->req->uri->getSegment(4);
-		$data = array(
-			'id_user'=> $id,            
-            'tanggal_akses'=> $tanggal
-        );
-        // print_r($data);exit;
-        $this->modelUser->save($data);
-        return redirect()->to(base_url().'/user');
 	}
 }

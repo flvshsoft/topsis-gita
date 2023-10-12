@@ -17,15 +17,16 @@
                         <div class="panel-body">
                         </div>
                         <div class="panel-body form-group-separated">
+                            <input type="hidden" name="id_sub_kriteria" value="<?= $model['id_sub_kriteria'] ?>" class="form-control" autofocus="" />
 
                             <div class="form-group">
                                 <input type="hidden" name="status_user" value="1" class="form-control" />
                                 <label class="col-md-3 col-xs-12 control-label">Kriteria</label>
                                 <div class="col-md-6 col-xs-12 control-label">
                                     <select class="form-control select" name="id_kriteria">
-                                        <option>- Pilih Kriteria -</option>
-                                        <?php foreach($modelKriteria as $key => $value): ?>
-                                        <option value="<?= $value['id_kriteria']; ?>"><?= $value['nama_kriteria']; ?></option>
+                                        <option value="<?= $model['id_kriteria'] ?>"><?= $modelKriteria[$model['id_kriteria']]['nama_kriteria'] ?></option>
+                                        <?php foreach ($modelKriteria as $key => $value) : ?>
+                                            <option value="<?= $value['id_kriteria']; ?>"><?= $value['nama_kriteria']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -35,7 +36,7 @@
                                 <div class="col-md-6 col-xs-12 control-label">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" name="nama_sub_kriteria" class="form-control" autofocus="" />
+                                        <input type="text" name="nama_sub_kriteria" value="<?= $model['nama_sub_kriteria'] ?>" class="form-control" autofocus="" />
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +45,7 @@
                                 <div class="col-md-6 col-xs-12 control-label">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" name="bobot" class="form-control" autofocus="" />
+                                        <input type="text" name="bobot" value="<?= $model['bobot'] ?>" class="form-control" autofocus="" />
                                     </div>
                                 </div>
                             </div>

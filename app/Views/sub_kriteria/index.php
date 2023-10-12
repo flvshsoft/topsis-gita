@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="<?= base_url('/user/tambah')?>" class="btn btn-primary"> Tambah Peminjam</a>
+                        <a href="<?= base_url('/sub-kriteria/tambah')?>" class="btn btn-primary"> Tambah Sub Kriteria</a>
                     </div>
                     <div class="panel-body panel-body-table">
                         <div class="table-responsive">
@@ -36,9 +36,9 @@
                                         <td><?= $v['bobot'] ?></td>
                                         <td>
 
-                                            <a href="<?= base_url()?>/kriteria/ubah/<?=$v['id_kriteria']?>" class="btn btn-default btn-rounded btn-condensed btn-sm"><span class="fa fa-pencil"></span></a>
+                                            <a href="<?= base_url()?>/sub-kriteria/ubah/<?=$v['id_sub_kriteria']?>" class="btn btn-default btn-rounded btn-condensed btn-sm"><span class="fa fa-pencil"></span></a>
 
-                                            <a class="btn btn-danger btn-rounded btn-condensed btn-sm" href="<?= base_url()?>/kriteria/hapus/<?=$v['id_kriteria']?>" onClick="return confirm('Hapus Data Ini ?')"><span class="fa fa-times"></span></a>
+                                            <a class="btn btn-danger btn-rounded btn-condensed btn-sm" href="<?= base_url()?>/sub-kriteria/hapus/<?=$v['id_sub_kriteria']?>" onClick="return confirm('Hapus Data Ini ?')"><span class="fa fa-times"></span></a>
                                         </td>
                                     </tr>
                                 <?php
