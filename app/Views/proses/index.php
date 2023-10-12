@@ -354,7 +354,6 @@
                                     <th>Alternatif</th>
                                     <th>D+</th>
                                     <th>D-</th>
-                                    <th>V</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -391,8 +390,97 @@
                                         <td>A<?= $no ?></td>
                                         <td><?= $dPlus ?></td>
                                         <td><?= $dMin ?></td>
-                                        <td><?= $dMin/($dMin+$dPlus) ?></td>
 
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+                    <h1>5. Menentukan Nilai Preferensi Untuk Setiap Alternatif </h1>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-actions">
+                            <thead>
+                                <tr>
+                                    <th width="50">#</th>
+                                    <th>Alternatif</th>
+                                    <th>V</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 0;
+                                $prefList = [];
+                                foreach ($normalYList[0] as $key => $value) {
+                                    $no++;
+                                    $c1 = number_format($normalYList[0][$key], 0);
+                                    $c2 = number_format($normalYList[1][$key], 0);
+                                    $c3 = number_format($normalYList[2][$key], 0);
+                                    $c4 = number_format($normalYList[3][$key], 0);
+                                    $temp4 = [];
+                                    $temp4Min = [];
+                                    foreach ($normalYList as $key2 => $value2) {
+                                        $temp = number_format($normalYList[$key2][$key], 0);
+                                        // echo $temp.' - '.$idealAPlus[$key2];
+                                        // plus
+                                        $temp2 = $temp - $idealAPlus[$key2];
+                                        $temp3 = pow($temp2, 2);
+                                        $temp4[] = $temp3;
+                                        // min
+                                        $temp2 = $temp - $idealAMin[$key2];
+                                        $temp3 = pow($temp2, 2);
+                                        $temp4Min[] = $temp3;
+                                        // echo '<br>';
+                                    }
+                                    $dPlus = sqrt(array_sum($temp4));
+                                    $dMin = number_format(sqrt(array_sum($temp4Min)), 5);
+                                    // exit;
+                                    $v = $dMin/($dMin+$dPlus);
+                                    $temp = ["A".$no, $v];
+                                    $temp['Alter'] = "A".$no;
+                                    $temp['v'] = $v;
+                                    $prefList[] = $temp;
+
+                                ?>
+                                    <tr id="trow_<?= $no ?>">
+                                        <td class="text-center"><?= $no ?></td>
+                                        <td>A<?= $no ?></td>
+                                        <td><?= $v ?></td>
+
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h1>Hasil Rangking </h1>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-actions">
+                            <thead>
+                                <tr>
+                                    <th width="50">#</th>
+                                    <th>Alternatif</th>
+                                    <th>V</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 0;
+                                // print_r($prefList);
+                                // sort($prefList);
+                                array_multisort( array_column($prefList, "v"), SORT_DESC, $prefList );
+                                foreach ($prefList as $key => $value) {
+                                    $no++;
+                                ?>
+                                    <tr id="trow_<?= $no ?>">
+                                        <td class="text-center"><?= $no ?></td>
+                                        <td><?= $value[0] ?></td>
+                                        <td><?= $value[1] ?></td>
                                     </tr>
                                 <?php
                                 }

@@ -14,47 +14,31 @@
                             <h3 class="panel-title"><?= $judul ?></h3>
                         </div>                                 
                         <div class="col-md-12">
-                            <div class="panel-body">
-                            </div>
                             <div class="panel-body form-group-separated">
 
                                 <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Username</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Nama Kriteria</label>
                                     <div class="col-md-6 col-xs-12 control-label">             
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" name="username" class="form-control" autofocus=""/>
+                                            <input type="text" name="nama_kriteria" class="form-control" autofocus=""/>
                                         </div>                                 
                                     </div>
-                                </div>                                              
+                                </div>          
+                            </div>
+                        </div>                                
+                        <div class="col-md-12">
+                            <div class="panel-body form-group-separated">
+
                                 <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Nama Pengguna</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Bobot</label>
                                     <div class="col-md-6 col-xs-12 control-label">             
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" name="nama_user" class="form-control"/>
+                                            <input type="text" name="bobot" class="form-control" autofocus=""/>
                                         </div>                                 
                                     </div>
-                                </div>  
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Password</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="password" name="password"  class="form-control"/>
-                                        </div>                                 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="status_user" value="1"  class="form-control"/>
-                                    <label class="col-md-3 col-xs-12 control-label">Level Akses</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <select class="form-control select" name="level_user">
-                                            <option value="admin">Admin</option>
-                                            <option value="pimpinan">Pimpinan</option>
-                                        </select>
-                                    </div>
-                                </div> 
+                                </div>          
                             </div>
                         </div>                                
                         <div class="panel-footer">

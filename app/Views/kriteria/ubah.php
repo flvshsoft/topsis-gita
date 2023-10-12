@@ -19,46 +19,24 @@
                             <div class="panel-body form-group-separated">
 
                                 <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Username</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Nama Kriteria</label>
                                     <div class="col-md-6 col-xs-12 control-label">             
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="hidden" name="id_user" value="<?= $model['id_user'] ?>" class="form-control" autofocus=""/>
-                                            <input type="text" name="username" value="<?= $model['username'] ?>" class="form-control" autofocus=""/>
+                                            <input type="hidden" name="id_kriteria" value="<?= $model['id_kriteria'] ?>" class="form-control" autofocus=""/>
+                                            <input type="text" name="nama_kriteria" value="<?= $model['nama_kriteria'] ?>" class="form-control" autofocus=""/>
                                         </div>                                 
                                     </div>
                                 </div>                                              
                                 <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Nama Pengguna</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Bobot</label>
                                     <div class="col-md-6 col-xs-12 control-label">             
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" name="nama_user" value="<?= $model['nama_user'] ?>" class="form-control"/>
+                                            <input type="text" name="bobot" value="<?= $model['bobot'] ?>" class="form-control"/>
                                         </div>                                 
                                     </div>
                                 </div>  
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Password</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="password" name="password" value="<?= $model['password'] ?>"  class="form-control"/>
-                                        </div>                                 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="status_user" value="1"  class="form-control"/>
-                                    <label class="col-md-3 col-xs-12 control-label">Level Akses</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <select class="form-control select" name="level_user">
-                                            <?php if(isset( $model['level_user'])): ?>
-                                                <option value="<?= $model['level_user'] ?>"><?= ucfirst($model['level_user']) ?></option>
-                                            <?php endif; ?>
-                                            <option value="admin">Admin</option>
-                                            <option value="pimpinan">Pimpinan</option>
-                                        </select>
-                                    </div>
-                                </div> 
                             </div>
                         </div>                                
                         <div class="panel-footer">

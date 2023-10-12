@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="<?= base_url('/user/tambah')?>" class="btn btn-primary"> Tambah Peminjam</a>
+                        <a href="<?= base_url('/kriteria/tambah')?>" class="btn btn-primary"> Tambah Kriteria</a>
                     </div>
                     <div class="panel-body panel-body-table">
                         <div class="table-responsive">

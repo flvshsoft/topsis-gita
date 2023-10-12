@@ -21,103 +21,65 @@ class KriteriaController extends BaseController
 	public function tambah()
 	{
     	$id = 0;
-		$data['judul'] = 'Tambah User';
-		$data['url'] = 'user/tambah';
+		$data['judul'] = 'Tambah Kriteria';
+		$data['url'] = 'kriteria/tambah';
 		$data['id'] = $id;
-		// $data['model'] = $this->modelUser
-		// // ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		// ->where('id_user', $id)
-		// ->find()[0];
 
-		echo view('/peminjam/tambah', $data);
+		echo view('/kriteria/tambah', $data);
 	}
 
 	public function insertData()
 	{
-		$getRule = $this->modelUser->getRule('insertData');
-		$this->modelUser->setValidationRules($getRule);
 
 		$data = [
-			'username' => $this->request->getPost('username'),
-			'nama_user' => $this->request->getPost('nama_user'),	
-			'password' => $this->request->getPost('password'),	
-			'level_user' => $this->request->getPost('level_user'),	
-			'status_user' => $this->request->getPost('status_user'),						
+			'nama_kriteria' => $this->request->getPost('nama_kriteria'),
+			'bobot' => $this->request->getPost('bobot'),						
 		];
 
-		if (!$this->modelUser->save($data)) {
-			return redirect()->back()->withInput()->with('errors', $this->modelUser->errors());
+		if (!$this->modelKriteria->save($data)) {
+			return redirect()->back()->withInput()->with('errors', $this->modelKriteria->errors());
 		}
 
 		return $this->index();
 	}
 
-	public function logout()
-	{
-		$this->session->set('userData', array('username', 'level_user'));
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
-	public function logoutUser()
-	{
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
 	public function ubah()
 	{
     	$id = $this->req->uri->getSegment(3);
-		$data['judul'] = 'Edit User';
-		$data['url'] = 'user/ubah';
+		$data['judul'] = 'Edit Kriteria';
+		$data['url'] = 'kriteria/ubah';
 		$data['id'] = $id;
-		$data['model'] = $this->modelUser
+		$data['model'] = $this->modelKriteria
 		// ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		->where('id_user', $id)
+		->where('id_kriteria', $id)
 		->find()[0];
 
 		// print_r($data['model']);exit;
 		
-		echo view('user/_form', $data);	
+		echo view('kriteria/ubah', $data);	
 	}
 
 	public function updateData()
 	{
 		$data = array(
-			'id_user'=> $this->request->getPost('id_user'),            
-            'username'=> $this->request->getPost('username'),
-            'nama_user'=> $this->request->getPost('nama_user'),
-            'password'=> $this->request->getPost('password'),
-            'level_user'=> $this->request->getPost('level_user'),
+			'id_kriteria'=> $this->request->getPost('id_kriteria'),            
+            'nama_kriteria'=> $this->request->getPost('nama_kriteria'),
+            'bobot'=> $this->request->getPost('bobot'),
          
         );
 		
         
-        $this->modelUser->save($data);
+        $this->modelKriteria->save($data);
 
         // print_r($data);exit;
 
-        return redirect()->to(base_url().'/user');
+        return redirect()->to(base_url().'/kriteria');
 	}
 
 	public function delete()
 	{
     	$id = $this->req->uri->getSegment(3);
-    	$this->modelUser->delete($id);
-        return redirect('user');
-    	
-	}
-
-	public function akses()
-	{
-    	$id = $this->req->uri->getSegment(3);
-    	$tanggal = $this->req->uri->getSegment(4);
-		$data = array(
-			'id_user'=> $id,            
-            'tanggal_akses'=> $tanggal
-        );
-        // print_r($data);exit;
-        $this->modelUser->save($data);
-        return redirect()->to(base_url().'/user');
+    	$this->modelKriteria->delete($id);
+        return redirect('kriteria');
 	}
 }
