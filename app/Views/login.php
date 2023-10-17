@@ -121,24 +121,34 @@
       <div class="login-box animated fadeInDown">
         <!-- <div class="login-logo"></div> -->
         <div class="col-md-2">
-          <a href="<?= base_url('/') ?>"><img src="<?= base_url('/images/pku.jpg') ?>" alt="John Doe" width="40px" align="center" /></a>
+          <a href="<?= base_url('/') ?>"><img src="<?= base_url('/images/siak.png') ?>" alt="John Doe" width="45px" align="center" /></a>
         </div>
         <h3>
-          Sistem pendukung keputusan
+          Sistem Pendukung Keputusan
         </h3>
-        <p>Menggunakan Metode Topsis</p>
+        <p>Kelayakan Penerima Pinjaman diBumDes Menggunakan Metode Topsis</p>
         <div class="login-body" style="background: #33414e;">
           <div class="login-title"><strong>Welcome</strong>, Silahkan login</div>
           <form action="<?= base_url('/login') ?>" class="form-horizontal" method="post">
             <?= csrf_field() ?>
             <div class="form-group">
               <div class="col-md-12">
-                <input type="text" class="form-control" name="username" placeholder="Username" value="<?= old('username') ?>" autofocus="" />
+                <div class="input-group">
+                  <span class="input-group-addon" style="background: #29343e;border: 1px solid #5c6873;padding: 0px;">
+                    <i class="glyphicon glyphicon-user" style="top:-2px;"></i>
+                  </span>
+                  <input type="text" class="form-control" name="username" placeholder="Username" value="<?= old('username') ?>" autofocus="" />
+                </div>
               </div>
             </div>
             <div class="form-group">
               <div class="col-md-12">
-                <input type="password" name="password" class="form-control" placeholder="Password" />
+                <div class="input-group">
+                  <span class="input-group-addon" style="background: #29343e;border: 1px solid #5c6873;padding: 0px;">
+                    <i class="glyphicon glyphicon-lock" style="top:-2px;"></i>
+                  </span>
+                  <input type="password" name="password" class="form-control" placeholder="Password" />
+                </div>
               </div>
             </div>
             <?php if (session()->getFlashdata('error') !== NULL) : ?>

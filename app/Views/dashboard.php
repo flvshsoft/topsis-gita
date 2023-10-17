@@ -8,7 +8,7 @@
         <h1 style="color:#574327">Sistem pendukung keputusan kelayakan penerima pinjaman bumdes</h1>
         <h4 style="color:#b49e80">Menggunakan metode Topsis</h4>
 
-        
+
 
     </div>
 </div>
@@ -50,69 +50,86 @@
                     </div>
 
                     <div class="col-md-12" style="margin-top:10%">
-                        <div class="col-md-4">
-                            <!-- <img src="<?= base_url('/public/images/diagnosis.png'); ?>" width="100%"> -->
-                        </div>
-                        <div class="col-md-8">
-                            <p style="padding:5% 1% 1% 1%">Klik untuk proses</p>
-                            <a href="<?= base_url('/proses') ?>" class="btn btn-success col-md-12">Perankingan</a>
+                        <div class="col-md-12">
+                            <img src="<?= base_url('/images/Struktur.jpeg'); ?>" width="100%">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8" style="padding: 1%;">
                     <h4>Sistem pendukung keputusan</h4>
-                    <p>Sistem pendukung keputusan kelayakan penerima pinjaman bumdes Menggunakan metode Topsis. Berikut sampel hasil perangkingan</p>
+                    <p>Sistem pendukung keputusan kelayakan penerima pinjaman bumdes Menggunakan metode Topsis.</p>
+
+                    Visi dan Misi<br><br>
+                    Visi<br>
+                    Mewujudkan kesejahteraan masyarakat melalui pemberdayaan usaha ekonomi masyarakat dan pelayanan sosial dengan desa/kampung motto "Dari Kita Untuk Kita".<br>
+                    <br>
+                    Misi
+
                     <br>
                     <br>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">1</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">Sarah</p>
+                                <p style="padding:1%">Meningkatkan perekonomian usaha masyarakat kampung</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">2</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">Dewi</p>
+                                <p style="padding:1%">Mengoptimalkan aset kampung agar bermanfaat untuk kesejahteraan kampung</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">3</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">M.Sholeh</p>
+                                <p style="padding:1%">Meningkatkan usaha masyarakat dalam pengelolaan potensi ekonomi kampung</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">4</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">Eko</p>
+                                <p style="padding:1%">Mengembangkan rencana kerja sama usaha antar kampung dan/atau dengan pihak ketiga</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">5</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">Sunarsih</p>
+                                <p style="padding:1%">Menciptakan peluang dan jaringan pasar yang mendukung kebutuhan layanan umum warga</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">6</p>
                             </div>
                             <div class="col-md-10">
-                                <p style="padding:1%">Rasmana Eka Wijaya</p>
+                                <p style="padding:1%">Membuka lapangan kerja</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1">
+                                <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">7</p>
+                            </div>
+                            <div class="col-md-10">
+                                <p style="padding:1%">Meningkatkan kesejahteraan masyarakat melalui perbaikan pelayanan umum, pertumbuhan dan pemerataan ekonomi kampung</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1">
+                                <p style="background:#eed3a6;border-radius:50%;color:#FFFFFF;text-align:center;padding:20%">8</p>
+                            </div>
+                            <div class="col-md-10">
+                                <p style="padding:1%">Meningkatkan pendapatan masyarakat kampung dan Pendapatan Asli Kampung.</p>
                             </div>
                         </div>
                     </div>
