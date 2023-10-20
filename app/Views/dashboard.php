@@ -1,12 +1,12 @@
 <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
-<div style="height:400px;background:#eed3a6">
-    <ul class="breadcrumb" style="background:#eed3a6">
-        <li><a href="<?= base_url('/dashboard') ?>">Home</a></li>
+<div style="height:400px;background:#7aac79">
+    <ul class="breadcrumb" style="background:#7aac79">
+        <!-- <li><a href="<?= base_url('/dashboard') ?>">Home</a></li> -->
     </ul>
     <div style="padding:4%">
-        <h1 style="color:#574327">Sistem pendukung keputusan kelayakan penerima pinjaman bumdes</h1>
-        <h4 style="color:#b49e80">Menggunakan metode Topsis</h4>
+        <h1 style="color:#FFFFFF">BADAN USAHA MILIK DESA PANGKALAN PISANG</h1>
+        <h4 style="color:#FFFFFF">( Bangun Wijaya )</h4>
 
 
 
@@ -14,7 +14,7 @@
 </div>
 
 <!-- PAGE CONTENT WRAPPER -->
-<div class="page-content-wrap" style="margin-top:-200px;padding:3%">
+<div class="page-content-wrap" style="margin-top:-250px;padding:3%">
     <!-- START WIDGETS -->
     <div class="row">
         <div class="col-md-12 pull-left">
@@ -56,16 +56,15 @@
                     </div>
                 </div>
                 <div class="col-md-8" style="padding: 1%;">
-                    <h4>Sistem pendukung keputusan</h4>
-                    <p>Sistem pendukung keputusan kelayakan penerima pinjaman bumdes Menggunakan metode Topsis.</p>
+                    <!-- <h4>Sistem pendukung keputusan</h4>
+                    <p>Sistem pendukung keputusan kelayakan penerima pinjaman bumdes Menggunakan metode Topsis.</p> -->
 
-                    Visi dan Misi<br><br>
-                    Visi<br>
+                    <h2>Visi dan Misi</h2>
+                    <h4>Visi</h4>
                     Mewujudkan kesejahteraan masyarakat melalui pemberdayaan usaha ekonomi masyarakat dan pelayanan sosial dengan desa/kampung motto "Dari Kita Untuk Kita".<br>
                     <br>
-                    Misi
+                    <h4>Misi</h4>
 
-                    <br>
                     <br>
                     <div class="col-md-12">
                         <div class="col-md-12">

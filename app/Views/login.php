@@ -22,7 +22,8 @@
     }
 
     body {
-      background: #eed3a6;
+      /* background: #eed3a6; */
+      background: url("<?= base_url() ?>//images/bg_login.jpeg");
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;

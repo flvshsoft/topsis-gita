@@ -89,6 +89,9 @@ $warna5 = "#999999";
                             <a href="<?= base_url() ?>/proses"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Proses</span></a>
                         </li>
                         <li>
+                            <a href="<?= base_url() ?>/hasil"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Hasil</span></a>
+                        </li>
+                        <li>
                             <a href="<?= base_url() ?>/user"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
                         </li>
                         <li>
@@ -123,7 +126,7 @@ $warna5 = "#999999";
         <div class="page-content">
 
             <!-- START X-NAVIGATION VERTICAL -->
-            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs" style="background: #ad9978">
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs" style="background: #638165">
                 <!-- TOGGLE NAVIGATION -->
                 <li class="xn-icon-button">
                     <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent" style="color:<?= $warna2 ?>;"></span></a>

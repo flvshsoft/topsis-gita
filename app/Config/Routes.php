@@ -41,3 +41,4 @@ $routes->post('/sub-kriteria/ubah', 'SubKriteriaController::updateData');
 $routes->get('/sub-kriteria/hapus/(:any)', 'SubKriteriaController::delete');
 
 $routes->get('/proses', 'ProsesController::index');
+$routes->get('/hasil', 'ProsesController::hasil');
