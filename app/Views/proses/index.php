@@ -192,7 +192,7 @@
 
                         <?php
                         $no = 0;
-                        $normalAllList = [$c1, $c2, $c3, $c4];
+                        $normalAllList = [$c1, $c2, $c3, $c4, $c5];
                         $no++;
                         ?>
                     </div>
@@ -203,10 +203,13 @@
                             <thead>
                                 <tr>
                                     <th width="50">#</th>
-                                    <th>C1</th>
-                                    <th>C2</th>
-                                    <th>C3</th>
-                                    <th>C4</th>
+                                    <?php
+                                    foreach ($modelKriteria as $key => $value) {
+                                    ?>
+                                        <th>C<?= $key+1 ?></th>
+                                    <?php
+                                    }
+                                    ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -246,12 +249,21 @@
                                 <?php
                                 $no = 0;
                                 // print_r($konversiAllList);
+                                $normalXList = [];
                                 foreach ($konversiAllList as $key => $value) {
                                     $no++;
                                     $c1 = number_format($value[0] / $normalAllList[0], 5);
                                     $c2 = number_format($value[1] / $normalAllList[1], 5);
                                     $c3 = number_format($value[2] / $normalAllList[2], 5);
                                     $c4 = number_format($value[3] / $normalAllList[3], 5);
+                                    $c5 = number_format($value[4] / $normalAllList[4], 5);
+                                    $temp = [];
+                                    $temp[] = $c1;
+                                    $temp[] = $c2;
+                                    $temp[] = $c3;
+                                    $temp[] = $c4;
+                                    $temp[] = $c5;
+                                    $normalXList[] = $temp;
                                 ?>
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
@@ -260,7 +272,7 @@
                                         <td><?= $c2 ?></td>
                                         <td><?= $c3 ?></td>
                                         <td><?= $c4 ?></td>
-
+                                        <td><?= $c5 ?></td>
                                     </tr>
                                 <?php
                                 }
@@ -269,7 +281,7 @@
                         </table>
                     </div>
 
-                    
+
                     <h1>2. Menghitung Tabel Matriks Ternormalisasi Y</h1>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-actions">
@@ -281,6 +293,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
+                                    <th>C5</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -288,25 +301,28 @@
                                 $no = 0;
                                 // print_r($konversiAllList);
                                 $normalYList = [];
-                                foreach ($konversiAllList as $key => $value) {
+                                foreach ($normalXList as $key => $value) {
                                     $no++;
                                     $c1 = number_format($value[0] * $kriteriaList[0], 0);
                                     $c2 = number_format($value[1] * $kriteriaList[1], 0);
                                     $c3 = number_format($value[2] * $kriteriaList[2], 0);
                                     $c4 = number_format($value[3] * $kriteriaList[3], 0);
+                                    $c5 = number_format($value[4] * $kriteriaList[4], 0);
 
                                     $normalYList[0][] = $c1;
                                     $normalYList[1][] = $c2;
                                     $normalYList[2][] = $c3;
                                     $normalYList[3][] = $c4;
+                                    $normalYList[4][] = $c5;
                                 ?>
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
                                         <td>A<?= $no ?></td>
-                                        <td><?= $c1 ?></td>
+                                        <td><?= $c1 . ' - ' . $value[0] . '*' . $kriteriaList[0] ?></td>
                                         <td><?= $c2 ?></td>
                                         <td><?= $c3 ?></td>
                                         <td><?= $c4 ?></td>
+                                        <td><?= $c5 ?></td>
 
                                     </tr>
                                 <?php
@@ -315,7 +331,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <h1>3. Menghitung Nilai Solusi Ideal Positif dan negatif </h1>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-actions">
@@ -326,6 +342,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
+                                    <th>C5</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -360,7 +377,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <h1>4. Mencari Jarak Terpendek Dengan Solusi Ideal Positif dan Negatif </h1>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-actions">
@@ -415,7 +432,7 @@
                         </table>
                     </div>
 
-                    
+
                     <h1>5. Menentukan Nilai Preferensi Untuk Setiap Alternatif </h1>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-actions">
@@ -454,9 +471,9 @@
                                     $dPlus = sqrt(array_sum($temp4));
                                     $dMin = number_format(sqrt(array_sum($temp4Min)), 5);
                                     // exit;
-                                    $v = $dMin/($dMin+$dPlus);
-                                    $temp = ["A".$no, $v];
-                                    $temp['Alter'] = "A".$no;
+                                    $v = $dMin / ($dMin + $dPlus);
+                                    $temp = ["A" . $no, $v];
+                                    $temp['Alter'] = "A" . $no;
                                     $temp['v'] = $v;
                                     $prefList[] = $temp;
 
@@ -473,7 +490,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <h1>Hasil Rangking </h1>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-actions">
@@ -489,7 +506,7 @@
                                 $no = 0;
                                 // print_r($prefList);
                                 // sort($prefList);
-                                array_multisort( array_column($prefList, "v"), SORT_DESC, $prefList );
+                                array_multisort(array_column($prefList, "v"), SORT_DESC, $prefList);
                                 foreach ($prefList as $key => $value) {
                                     $no++;
                                 ?>

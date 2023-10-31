@@ -69,8 +69,10 @@
                                 $no = 0;
                                 $konversiAllList = [];
                                 $konversiList = [];
+                                $alterList = [];
                                 foreach ($model as $key => $value) {
                                     $no++;
+                                    $alterList["A".$no] = $value['nama'];
                                     $c1 = $modelSubKriteria['1'][$value['formulir']];
                                     $c2 = $modelSubKriteria['2'][$value['jenis_usaha']];
                                     $periode_pinjaman = 0;
@@ -481,6 +483,7 @@
                                 <tr>
                                     <th width="50">No</th>
                                     <th>Alternatif</th>
+                                    <th>Nama</th>
                                     <th>Hasil Nilai</th>
                                 </tr>
                             </thead>
@@ -496,6 +499,7 @@
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
                                         <td><?= $value[0] ?></td>
+                                        <td><?= $alterList[$value[0]] ?></td>
                                         <td><?= $value[1] ?></td>
                                     </tr>
                                 <?php
