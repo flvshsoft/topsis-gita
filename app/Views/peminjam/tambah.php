@@ -1,70 +1,99 @@
 <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
-    <!-- PAGE CONTENT WRAPPER -->
-    <div class="page-content-wrap">
-        
-        <!-- START WIDGETS -->                                        
-            
-        <div class="row">
-            <div class="col-md-12">                            
-                <form class="form-horizontal" method="POST" action="<?= base_url($url) ?>">
-                    <?= csrf_field() ?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><?= $judul ?></h3>
-                        </div>                                 
-                        <div class="col-md-12">
-                            <div class="panel-body">
-                            </div>
-                            <div class="panel-body form-group-separated">
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
 
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Username</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" name="username" class="form-control" autofocus=""/>
-                                        </div>                                 
-                                    </div>
-                                </div>                                              
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Nama Pengguna</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" name="nama_user" class="form-control"/>
-                                        </div>                                 
-                                    </div>
-                                </div>  
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Password</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="password" name="password"  class="form-control"/>
-                                        </div>                                 
+    <!-- START WIDGETS -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" method="POST" action="<?= base_url($url) ?>">
+                <?= csrf_field() ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?= $judul ?></h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                        </div>
+                        <div class="panel-body form-group-separated">
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Nama</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" name="nama" class="form-control" autofocus="" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="status_user" value="1"  class="form-control"/>
-                                    <label class="col-md-3 col-xs-12 control-label">Level Akses</label>
-                                    <div class="col-md-6 col-xs-12 control-label">             
-                                        <select class="form-control select" name="level_user">
-                                            <option value="admin">Admin</option>
-                                            <option value="pimpinan">Pimpinan</option>
-                                        </select>
-                                    </div>
-                                </div> 
                             </div>
-                        </div>                                
-                        <div class="panel-footer">
-                            <!-- <button class="btn btn-default">Kembali</button>                                     -->
-                            <input type="submit" value="SIMPAN" class="btn btn-primary pull-right">
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Jenis Kelamin</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <select class="form-control select" name="jenis_kelamin">
+                                        <option value="L">Laki-Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Formulir</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <select class="form-control select" name="formulir">
+                                        <?php foreach ($modelSubKriteria[1] as $key => $value) : ?>
+                                            <option><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Jenis Usaha</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <select class="form-control select" name="jenis_usaha">
+                                    <?php foreach ($modelSubKriteria[2] as $key => $value) : ?>
+                                            <option><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Total Pinjaman</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" name="total_pinjaman" class="form-control" autofocus="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Periode Pinjaman</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" name="periode_pinjaman" class="form-control" autofocus="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Tunggakan</label>
+                                <div class="col-md-6 col-xs-12 control-label">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" name="tunggakan" class="form-control" autofocus="" />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </form>                        
-            </div>
-        </div>                        
+                    <div class="panel-footer">
+                        <!-- <button class="btn btn-default">Kembali</button>                                     -->
+                        <input type="submit" value="SIMPAN" class="btn btn-primary pull-right">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <!-- END PAGE CONTENT WRAPPER -->                                
+</div>
+<!-- END PAGE CONTENT WRAPPER -->
 <?= $this->endSection() ?>

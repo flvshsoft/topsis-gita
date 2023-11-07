@@ -21,13 +21,20 @@ class PeminjamController extends BaseController
 	public function tambah()
 	{
     	$id = 0;
-		$data['judul'] = 'Tambah User';
-		$data['url'] = 'user/tambah';
+		$data['judul'] = 'Tambah Peminjam';
+		$data['url'] = 'peminjam/tambah';
 		$data['id'] = $id;
-		// $data['model'] = $this->modelUser
-		// // ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		// ->where('id_user', $id)
-		// ->find()[0];
+		
+		$data['modelSubKriteria'] = $this->modelSubKriteria
+		->findAll();
+
+		$temp = [];
+		foreach ($data['modelSubKriteria'] as $key => $value) {
+			$temp[$value['id_kriteria']][] = $value['nama_sub_kriteria'];
+		}
+		// print_r($temp);
+		// exit;
+		$data['modelSubKriteria'] = $temp;
 
 		echo view('/peminjam/tambah', $data);
 	}

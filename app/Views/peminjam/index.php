@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="<?= base_url('/user/tambah')?>" class="btn btn-primary"> Tambah Peminjam</a>
+                        <a href="<?= base_url('/peminjam/tambah')?>" class="btn btn-primary"> Tambah Peminjam</a>
                     </div>
                     <div class="panel-body panel-body-table">
                         <div class="table-responsive">
@@ -19,8 +19,9 @@
                                         <th>Jenis Kelamin</th>
                                         <th>Formulir Pengajuan</th>
                                         <th>Jenis Usaha</th>
-                                        <th>Periode Pinjam</th>
                                         <th>Total Pinjam</th>
+                                        <th>Periode Pinjam</th>
+                                        <th>Tunggakan</th>
                                         <th width="190">Aksi</th>
                                     </tr>
                                 </thead>
@@ -40,6 +41,7 @@
                                         <td><?= $v['jenis_usaha'] ?></td>
                                         <td><?= $v['total_pinjaman'] ?></td>
                                         <td><?= $v['periode_pinjaman'] ?></td>
+                                        <td><?= $v['tunggakan'] ?></td>
                                         <td>
 
                                             <a href="<?= base_url()?>/peminjam/ubah/<?=$v['id_peminjam']?>" class="btn btn-default btn-rounded btn-condensed btn-sm"><span class="fa fa-pencil"></span></a>
