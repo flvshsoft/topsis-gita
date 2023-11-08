@@ -14,5 +14,5 @@ class PeminjamModel extends Model
     protected $returnType = 'array';
     protected $usSoftDeletes = true;
 
-    protected $allowedFields = ['nama', 'jenis_kelamin', 'formulir', 'jenis_usaha', 'periode_pinjaman', 'anggunan', 'total_pinjaman'];
+    protected $allowedFields = ['nama', 'jenis_kelamin', 'formulir', 'jenis_usaha', 'periode_pinjaman', 'anggunan', 'total_pinjaman', 'tunggakan'];
 }

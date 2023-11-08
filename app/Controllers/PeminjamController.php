@@ -41,90 +41,76 @@ class PeminjamController extends BaseController
 
 	public function insertData()
 	{
-		$getRule = $this->modelUser->getRule('insertData');
-		$this->modelUser->setValidationRules($getRule);
-
 		$data = [
-			'username' => $this->request->getPost('username'),
-			'nama_user' => $this->request->getPost('nama_user'),	
-			'password' => $this->request->getPost('password'),	
-			'level_user' => $this->request->getPost('level_user'),	
-			'status_user' => $this->request->getPost('status_user'),						
+			'nama' => $this->request->getPost('nama'),
+			'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),	
+			'formulir' => $this->request->getPost('formulir'),	
+			'jenis_usaha' => $this->request->getPost('jenis_usaha'),	
+			'total_pinjaman' => $this->request->getPost('total_pinjaman'),						
+			'periode_pinjaman' => $this->request->getPost('periode_pinjaman'),						
+			'tunggakan' => $this->request->getPost('tunggakan'),						
 		];
 
-		if (!$this->modelUser->save($data)) {
-			return redirect()->back()->withInput()->with('errors', $this->modelUser->errors());
+		// print_r($data);
+
+		if (!$this->modelPeminjam->save($data)) {
+			return redirect()->back()->withInput()->with('errors', $this->modelPeminjam->errors());
 		}
 
 		return $this->index();
 	}
 
-	public function logout()
-	{
-		$this->session->set('userData', array('username', 'level_user'));
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
-	public function logoutUser()
-	{
-		$this->session->destroy();
-		return redirect()->to(base_url());
-	}
-
 	public function ubah()
 	{
     	$id = $this->req->uri->getSegment(3);
-		$data['judul'] = 'Edit User';
-		$data['url'] = 'user/ubah';
+		$data['judul'] = 'Edit Peminjam';
+		$data['url'] = 'peminjam/ubah';
 		$data['id'] = $id;
-		$data['model'] = $this->modelUser
+		$data['model'] = $this->modelPeminjam
 		// ->join('pangkat', 'pangkat.id_pangkat=pegawai.pang_gol_pegawai', 'left')
-		->where('id_user', $id)
+		->where('id_peminjam', $id)
 		->find()[0];
+
+		$data['modelSubKriteria'] = $this->modelSubKriteria
+		->findAll();
+
+		$temp = [];
+		foreach ($data['modelSubKriteria'] as $key => $value) {
+			$temp[$value['id_kriteria']][] = $value['nama_sub_kriteria'];
+		}
+		$data['modelSubKriteria'] = $temp;
 
 		// print_r($data['model']);exit;
 		
-		echo view('user/_form', $data);	
+		echo view('peminjam/ubah', $data);	
 	}
 
 	public function updateData()
 	{
-		$data = array(
-			'id_user'=> $this->request->getPost('id_user'),            
-            'username'=> $this->request->getPost('username'),
-            'nama_user'=> $this->request->getPost('nama_user'),
-            'password'=> $this->request->getPost('password'),
-            'level_user'=> $this->request->getPost('level_user'),
-         
-        );
+		$data = [
+			'id_peminjam' => $this->request->getPost('id_peminjam'),
+			'nama' => $this->request->getPost('nama'),
+			'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),	
+			'formulir' => $this->request->getPost('formulir'),	
+			'jenis_usaha' => $this->request->getPost('jenis_usaha'),	
+			'total_pinjaman' => $this->request->getPost('total_pinjaman'),						
+			'periode_pinjaman' => $this->request->getPost('periode_pinjaman'),						
+			'tunggakan' => $this->request->getPost('tunggakan'),						
+		];
 		
         
-        $this->modelUser->save($data);
+        $this->modelPeminjam->save($data);
 
         // print_r($data);exit;
 
-        return redirect()->to(base_url().'/user');
+        return redirect()->to(base_url().'/peminjam');
 	}
 
 	public function delete()
 	{
     	$id = $this->req->uri->getSegment(3);
-    	$this->modelUser->delete($id);
-        return redirect('user');
+    	$this->modelPeminjam->delete($id);
+        return redirect('peminjam');
     	
-	}
-
-	public function akses()
-	{
-    	$id = $this->req->uri->getSegment(3);
-    	$tanggal = $this->req->uri->getSegment(4);
-		$data = array(
-			'id_user'=> $id,            
-            'tanggal_akses'=> $tanggal
-        );
-        // print_r($data);exit;
-        $this->modelUser->save($data);
-        return redirect()->to(base_url().'/user');
-	}
+	} 	
 }
