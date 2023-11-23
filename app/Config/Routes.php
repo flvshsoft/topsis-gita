@@ -22,6 +22,8 @@ $routes->get('/user/hapus/(:any)', 'UserController::delete');
 $routes->get('/peminjam', 'PeminjamController::index');
 $routes->get('/peminjam/tambah', 'PeminjamController::tambah');
 $routes->post('/peminjam/tambah', 'PeminjamController::insertData');
+$routes->get('/peminjam/import', 'PeminjamController::import');
+$routes->post('/peminjam/simpanExcel', 'PeminjamController::simpanExcel');
 $routes->get('/peminjam/ubah/(:any)', 'PeminjamController::ubah');
 $routes->post('/peminjam/ubah', 'PeminjamController::updateData');
 $routes->get('/peminjam/hapus/(:any)', 'PeminjamController::delete');

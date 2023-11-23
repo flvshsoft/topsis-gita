@@ -8,6 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="<?= base_url('/peminjam/tambah')?>" class="btn btn-primary"> Tambah Peminjam</a>
+                        <a href="<?= base_url('/peminjam/import')?>" class="btn btn-success"> Import Peminjam</a>
                     </div>
                     <div class="panel-body panel-body-table">
                         <div class="table-responsive">
