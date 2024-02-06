@@ -1,7 +1,7 @@
 <?php
 $warna1 = "#f78242";
 $warna2 = "#33414e";
-$warna3 = "#f6f6f6";
+$warna3 = "#E95793"; //ungu
 $warna4 = "#FFFFFF";
 $warna5 = "#999999";
 ?>
@@ -15,15 +15,44 @@ $warna5 = "#999999";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="icon" href="<?= base_url() ?>/images/elgoni.png" type="image/x-icon" />
+    <link rel="icon" href="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg" type="image/x-icon" />
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>/css/theme-default.css" />
     <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>/css/fs.css" />
+    <link rel="stylesheet" type="text/css" id="theme" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
     <style type="text/css">
         .xn-openable ul li {
             left: 25px;
+        }
+
+        #nav ul li {
+            padding: 1% 3% 1% 3%;
+        }
+
+        #nav ul .active {
+            padding: 3%;
+        }
+
+        #nav ul .active>a {
+            background: <?= $warna3 ?>;
+            border-radius: 10px;
+            color: #FFFFFF;
+        }
+
+        #nav ul .active>a .xn-text {
+            color: #FFFFFF;
+        }
+
+        #nav ul .active>a .fa {
+            color: #FFFFFF;
+        }
+
+        #nav ul li>a .fa {
+            color: #33414e;
+            font-size: 18px;
         }
     </style>
     <!-- EOF CSS INCLUDE -->
@@ -34,17 +63,17 @@ $warna5 = "#999999";
     <div class="page-container" style="background: <?= $warna4 ?>">
 
         <!-- START PAGE SIDEBAR -->
-        <div class="page-sidebar" style="background: <?= $warna1 ?>">
+        <div class="page-sidebar" style="background: <?= $warna1 ?>" id="nav">
             <!-- START X-NAVIGATION -->
             <ul class="x-navigation" style="background: <?= $warna4 ?>">
                 <li class="xn-logox" style="background: <?= $warna4 ?>">
                     <a href="#">
-                        <!-- <img src="<?= base_url() ?>/images/512.png" alt="Flashsoft Indonesia" width="250px" class="hidden-xs"/> -->
-                        &nbsp;&nbsp;<span style="color:#ad9978;display: nonex;font-weight:bold;font-size:18px;">Topsis</span>
+                        <img src="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg" alt="Flashsoft Indonesia" width="50px" class="hidden-xs"/>
+                        &nbsp;&nbsp;<span style="color:<?= $warna3 ?>;display: nonex;font-weight:bold;font-size:18px;">Topsis</span>
                     </a>
                     <a class="x-navigation-control"></a>
                 </li>
-                <li class="xn-profile" style="background: <?= $warna4 ?>">
+                <li class="xn-profile" style="background: <?= $warna4 ?>;display:none;">
                     <a href="#" class="profile-mini">
                         <img src="<?= base_url() ?>/adhitama.png" alt="Flashsoft Indonesia" />
                     </a>
@@ -74,25 +103,25 @@ $warna5 = "#999999";
                 ?>
 
                         <li>
-                            <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
+                            <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/peminjam"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Peminjam</span></a>
+                            <a href="<?= base_url() ?>/peminjam"><span class="fa fa-users"></span> <span class="xn-text">Peminjam</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/kriteria"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Kriteria</span></a>
+                            <a href="<?= base_url() ?>/kriteria"><span class="fa fa-folder-o"></span> <span class="xn-text">Kriteria</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/sub-kriteria"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Sub Kriteria</span></a>
+                            <a href="<?= base_url() ?>/sub-kriteria"><span class="fa fa-folder-open-o"></span> <span class="xn-text">Sub Kriteria</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/proses"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Proses</span></a>
+                            <a href="<?= base_url() ?>/proses"><span class="fa fa-tasks"></span> <span class="xn-text">Proses</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/hasil"><span class="fa fa-folder-open-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Hasil</span></a>
+                            <a href="<?= base_url() ?>/hasil"><span class="fa fa-file-text-o"></span> <span class="xn-text">Hasil</span></a>
                         </li>
                         <li>
-                            <a href="<?= base_url() ?>/user"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">User</span></a>
+                            <a href="<?= base_url() ?>/user"><span class="fa fa-user-circle"></span> <span class="xn-text">User</span></a>
                         </li>
                         <li>
                             <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out" style="color:<?= $warna2 ?>;"></span><span class="xn-text">Logout</span></a>
@@ -104,18 +133,18 @@ $warna5 = "#999999";
                 } else {
                     ?>
                     <li>
-                        <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home" style="color: <?= $warna5 ?>"></span> <span class="xn-text">Beranda</span></a>
+                        <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
                     </li>
-                    
+
                     <li>
-                        <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o" style="color: <?= $warna5 ?>"></span> <span class="xn-text">About</span></a>
+                        <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o"></span> <span class="xn-text">About</span></a>
                     </li>
                 <?php
                 }
 
                 ?>
 
-                <!-- <li><a href="#" class="mb-control" data-box="#mb-signout" style="color: <?= $warna5 ?>"><span class="fa fa-sign-out" style="color: <?= $warna5 ?>"></span> Keluar</a></li> -->
+                <!-- <li><a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span> Keluar</a></li> -->
 
             </ul>
             <!-- END X-NAVIGATION -->
@@ -126,7 +155,7 @@ $warna5 = "#999999";
         <div class="page-content">
 
             <!-- START X-NAVIGATION VERTICAL -->
-            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs" style="background: #638165">
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs" style="background: <?= $warna3 ?>">
                 <!-- TOGGLE NAVIGATION -->
                 <li class="xn-icon-button">
                     <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent" style="color:<?= $warna2 ?>;"></span></a>
@@ -233,7 +262,17 @@ $warna5 = "#999999";
 
     <!-- END TEMPLATE -->
 
-
+    <script>
+        $(function($) {
+            let url = window.location.href;
+            $('#nav ul li a').each(function() {
+                console.log(this.href)
+                if (this.href === url) {
+                    $(this).closest('li').addClass('active');
+                }
+            });
+        });
+    </script>
 
     <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->

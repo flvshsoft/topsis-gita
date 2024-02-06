@@ -33,7 +33,7 @@ class LoginController extends BaseController
 	public function index()
 	{
 		if (isset(session('userData')['level_user'])) {
-			return redirect()->to(base_url() . '/');
+			return redirect()->to(base_url() . '/dashboard');
 		}
 		$this->session->set('isLoggedIn', false);
 		$this->session->set('userData', array());

@@ -18,7 +18,7 @@
                                         <th width="50">#</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Formulir Pengajuan</th>
+                                        <!-- <th>Formulir Pengajuan</th> -->
                                         <th>Jenis Usaha</th>
                                         <th>Total Pinjam</th>
                                         <th>Periode Pinjam</th>
@@ -38,7 +38,7 @@
                                         <td class="text-center"><?= $no ?></td>
                                         <td><?= $v['nama'] ?></td>
                                         <td><?= $v['jenis_kelamin'] ?></td>
-                                        <td><?= $v['formulir'] ?></td>
+                                        <!-- <td><?= $v['formulir'] ?></td> -->
                                         <td><?= $v['jenis_usaha'] ?></td>
                                         <td><?= $v['total_pinjaman'] ?></td>
                                         <td><?= $v['periode_pinjaman'] ?></td>

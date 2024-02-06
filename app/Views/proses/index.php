@@ -18,7 +18,7 @@
                                     <th width="50">#</th>
                                     <th>Nama</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Formulir Pengajuan</th>
+                                    <!-- <th>Formulir Pengajuan</th> -->
                                     <th>Jenis Usaha</th>
                                     <th>Periode Pinjam</th>
                                     <th>Total Pinjam</th>
@@ -37,7 +37,7 @@
                                         <td class="text-center"><?= $no ?></td>
                                         <td><?= $v['nama'] ?></td>
                                         <td><?= $v['jenis_kelamin'] ?></td>
-                                        <td><?= $v['formulir'] ?></td>
+                                        <!-- <td><?= $v['formulir'] ?></td> -->
                                         <td><?= $v['jenis_usaha'] ?></td>
                                         <td><?= number_format($v['total_pinjaman']) ?></td>
                                         <td><?= $v['periode_pinjaman'] ?></td>
@@ -61,7 +61,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
-                                    <th>C5</th>
+                                    <!-- <th>C5</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +71,7 @@
                                 $konversiList = [];
                                 foreach ($model as $key => $value) {
                                     $no++;
-                                    $c1 = $modelSubKriteria['1'][$value['formulir']];
+                                    // $c1 = $modelSubKriteria['1'][$value['formulir']];
                                     $c2 = $modelSubKriteria['2'][$value['jenis_usaha']];
                                     $periode_pinjaman = 0;
                                     foreach ($modelSubKriteria['3'] as $key2 => $value2) {
@@ -87,23 +87,27 @@
                                         // print_r($temp2);
                                         // echo '<br>';
                                     }
+
                                     $c3 = $periode_pinjaman;
                                     $c4 = $modelSubKriteria['4'][$value['periode_pinjaman']];
-                                    $c5 = $modelSubKriteria['5'][$value['tunggakan']];
+                                    $c5 = $modelSubKriteria['5'][$value['tunggakan'] == "-" ? 0 : ($value['tunggakan'] >= 2 ? 2 : $value['tunggakan'])];
+
                                     // konversi
-                                    $konversiList['1'][] = $c1;
+                                    // $konversiList['1'][] = $c1;
                                     $konversiList['2'][] = $c2;
                                     $konversiList['3'][] = $c3;
                                     $konversiList['4'][] = $c4;
                                     $konversiList['5'][] = $c5;
                                     // konversi all
-                                    $temp = [$c1, $c2, $c3, $c4, $c5];
+                                    // $temp = [$c1, $c2, $c3, $c4, $c5];
+                                    $temp = [$c2, $c3, $c4, $c5];
                                     $konversiAllList[] = $temp;
                                 ?>
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
                                         <td>A<?= $no ?></td>
-                                        <td><?= $modelSubKriteria['1'][$value['formulir']] ?></td>
+                                        <!-- <td><?php // $modelSubKriteria['1'][$value['formulir']] 
+                                                    ?></td> -->
                                         <td><?= $modelSubKriteria['2'][$value['jenis_usaha']] ?></td>
                                         <td>
                                             <?php
@@ -112,7 +116,7 @@
                                             ?>
                                         </td>
                                         <td><?= $c4 ?></td>
-                                        <td><?= $c5 ?></td>
+                                        <td><?php print_r($c5) ?></td>
                                     </tr>
                                 <?php
                                 }
@@ -131,25 +135,25 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
-                                    <th>C5</th>
+                                    <!-- <th>C5</th> -->
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr id="trow_<?= $no ?>">
                                     <td class="text-center"><?= $no ?></td>
-                                    <td>
-                                        <?php
-                                        // print_r($konversiList['1']);
-                                        $normalC1List = [];
-                                        foreach ($konversiList['1'] as $key => $value) {
-                                            $normalC1List[] = pow($value, 2);
-                                            // echo pow($value,2);
-                                            // echo '<br>';
-                                        }
-                                        echo $c1 = number_format(sqrt(array_sum($normalC1List)), 5);
-                                        ?>
-                                    </td>
+                                    <!-- <td> -->
+                                    <?php
+                                    // print_r($konversiList['1']);
+                                    // $normalC1List = [];
+                                    // foreach ($konversiList['1'] as $key => $value) {
+                                    //     $normalC1List[] = pow($value, 2);
+                                    //     // echo pow($value,2);
+                                    //     // echo '<br>';
+                                    // }
+                                    // echo $c1 = number_format(sqrt(array_sum($normalC1List)), 5);
+                                    ?>
+                                    <!-- </td> -->
                                     <td>
                                         <?php
                                         $normalC1List = [];
@@ -192,7 +196,8 @@
 
                         <?php
                         $no = 0;
-                        $normalAllList = [$c1, $c2, $c3, $c4, $c5];
+                        // $normalAllList = [$c1, $c2, $c3, $c4, $c5];
+                        $normalAllList = [$c2, $c3, $c4, $c5];
                         $no++;
                         ?>
                     </div>
@@ -206,7 +211,7 @@
                                     <?php
                                     foreach ($modelKriteria as $key => $value) {
                                     ?>
-                                        <th>C<?= $key+1 ?></th>
+                                        <th>C<?= $key + 1 ?></th>
                                     <?php
                                     }
                                     ?>
@@ -252,13 +257,18 @@
                                 $normalXList = [];
                                 foreach ($konversiAllList as $key => $value) {
                                     $no++;
-                                    $c1 = number_format($value[0] / $normalAllList[0], 5);
-                                    $c2 = number_format($value[1] / $normalAllList[1], 5);
-                                    $c3 = number_format($value[2] / $normalAllList[2], 5);
-                                    $c4 = number_format($value[3] / $normalAllList[3], 5);
-                                    $c5 = number_format($value[4] / $normalAllList[4], 5);
+                                    // $c1 = number_format($value[0] / $normalAllList[0], 5);
+                                    // $c2 = number_format($value[1] / $normalAllList[1], 5);
+                                    // $c3 = number_format($value[2] / $normalAllList[2], 5);
+                                    // $c4 = number_format($value[3] / $normalAllList[3], 5);
+                                    // $c5 = number_format($value[4] / $normalAllList[4], 5);
+                                    $c2 = number_format($value[0] / $normalAllList[0], 5);
+                                    $c3 = number_format($value[1] / $normalAllList[1], 5);
+                                    $c4 = number_format($value[2] / $normalAllList[2], 5);
+                                    $c5 = number_format($value[3] / $normalAllList[3], 5);
+
                                     $temp = [];
-                                    $temp[] = $c1;
+                                    // $temp[] = $c1;
                                     $temp[] = $c2;
                                     $temp[] = $c3;
                                     $temp[] = $c4;
@@ -268,7 +278,7 @@
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
                                         <td>A<?= $no ?></td>
-                                        <td><?= $c1 ?></td>
+                                        <!-- <td><?// $c1 ?></td> -->
                                         <td><?= $c2 ?></td>
                                         <td><?= $c3 ?></td>
                                         <td><?= $c4 ?></td>
@@ -293,7 +303,6 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
-                                    <th>C5</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -303,13 +312,18 @@
                                 $normalYList = [];
                                 foreach ($normalXList as $key => $value) {
                                     $no++;
-                                    $c1 = number_format($value[0] * $kriteriaList[0], 0);
-                                    $c2 = number_format($value[1] * $kriteriaList[1], 0);
-                                    $c3 = number_format($value[2] * $kriteriaList[2], 0);
-                                    $c4 = number_format($value[3] * $kriteriaList[3], 0);
-                                    $c5 = number_format($value[4] * $kriteriaList[4], 0);
+                                    // $c1 = number_format($value[0] * $kriteriaList[0], 0);
+                                    // $c2 = number_format($value[1] * $kriteriaList[1], 0);
+                                    // $c3 = number_format($value[2] * $kriteriaList[2], 0);
+                                    // $c4 = number_format($value[3] * $kriteriaList[3], 0);
+                                    // $c5 = number_format($value[4] * $kriteriaList[4], 0);
 
-                                    $normalYList[0][] = $c1;
+                                    $c2 = number_format($value[0] * $kriteriaList[0], 0);
+                                    $c3 = number_format($value[1] * $kriteriaList[1], 0);
+                                    $c4 = number_format($value[2] * $kriteriaList[2], 0);
+                                    $c5 = number_format($value[3] * $kriteriaList[3], 0);
+
+                                    // $normalYList[0][] = $c1;
                                     $normalYList[1][] = $c2;
                                     $normalYList[2][] = $c3;
                                     $normalYList[3][] = $c4;
@@ -318,7 +332,7 @@
                                     <tr id="trow_<?= $no ?>">
                                         <td class="text-center"><?= $no ?></td>
                                         <td>A<?= $no ?></td>
-                                        <td><?= $c1 . ' - ' . $value[0] . '*' . $kriteriaList[0] ?></td>
+                                        <!-- <td><?// $c1 . ' - ' . $value[0] . '*' . $kriteriaList[0] ?></td> -->
                                         <td><?= $c2 ?></td>
                                         <td><?= $c3 ?></td>
                                         <td><?= $c4 ?></td>
@@ -342,7 +356,7 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
-                                    <th>C5</th>
+                                    <!-- <th>C5</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -353,7 +367,7 @@
                                     $idealAPlus = [];
                                     foreach ($normalYList as $key => $value) {
                                         $no++;
-                                        $idealAPlus[] = max($value);
+                                        $idealAPlus[$key] = max($value);
                                     ?>
                                         <td><?= max($value) ?></td>
                                     <?php
@@ -367,7 +381,7 @@
                                     $idealAMin = [];
                                     foreach ($normalYList as $key => $value) {
                                         $no++;
-                                        $idealAMin[] = min($value);
+                                        $idealAMin[$key] = min($value);
                                     ?>
                                         <td><?= min($value) ?></td>
                                     <?php
@@ -392,12 +406,13 @@
                             <tbody>
                                 <?php
                                 $no = 0;
-                                foreach ($normalYList[0] as $key => $value) {
+                                foreach ($normalYList[1] as $key => $value) {
                                     $no++;
-                                    $c1 = number_format($normalYList[0][$key], 0);
+                                    // $c1 = number_format($normalYList[0][$key], 0);
                                     $c2 = number_format($normalYList[1][$key], 0);
                                     $c3 = number_format($normalYList[2][$key], 0);
                                     $c4 = number_format($normalYList[3][$key], 0);
+                                    $c5 = number_format($normalYList[4][$key], 0);
                                     $temp4 = [];
                                     $temp4Min = [];
                                     foreach ($normalYList as $key2 => $value2) {
@@ -447,9 +462,9 @@
                                 <?php
                                 $no = 0;
                                 $prefList = [];
-                                foreach ($normalYList[0] as $key => $value) {
+                                foreach ($normalYList[1] as $key => $value) {
                                     $no++;
-                                    $c1 = number_format($normalYList[0][$key], 0);
+                                    // $c1 = number_format($normalYList[0][$key], 0);
                                     $c2 = number_format($normalYList[1][$key], 0);
                                     $c3 = number_format($normalYList[2][$key], 0);
                                     $c4 = number_format($normalYList[3][$key], 0);

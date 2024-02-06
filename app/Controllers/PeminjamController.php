@@ -81,20 +81,24 @@ class PeminjamController extends BaseController
 			// $Nis = $row[0];
 			$nama = $row[1];
 			$jenis_kelamin = $row[2];
-			$formulir = $row[3];
-			$jenis_usaha = $row[4];
-			$total_peminjaman = $row[5];
-			$periode = $row[6];
-			$tunggakan = $row[7];
+			// $formulir = $row[3];
+			$jenis_usaha = $row[3];
+			$total_pinjaman = $row[4];
+			$periode_pinjaman = $row[5];
+			$tunggakan = $row[6];
+
+			if ($nama == null) {
+				break;
+			}
 
 			$data = [
-				'nama' => $row[1],
-				'jenis_kelamin' => $row[2],
-				'formulir' => $row[3],
-				'jenis_usaha' => $row[4],
-				'total_pinjaman' => $row[5],
-				'periode_pinjaman' => $row[6],
-				'tunggakan' => $row[7],
+				'nama' => $nama,
+				'jenis_kelamin' => $jenis_kelamin,
+				// 'formulir' => $formulir,
+				'jenis_usaha' => $jenis_usaha,
+				'total_pinjaman' => $total_pinjaman,
+				'periode_pinjaman' => $periode_pinjaman,
+				'tunggakan' => $tunggakan,
 			];
 
 			// print_r($data);
@@ -123,8 +127,7 @@ class PeminjamController extends BaseController
 		if (!$this->modelPeminjam->save($data)) {
 			return redirect()->back()->withInput()->with('errors', $this->modelPeminjam->errors());
 		}
-
-		return $this->index();
+		return redirect()->to(base_url() . '/peminjam');	
 	}
 
 	public function ubah()
