@@ -25,6 +25,7 @@ class ProsesController extends BaseController
 			$subList[$value['id_kriteria']][$value['nama_sub_kriteria']] = $value['bobot'];
 			// echo '<br>';
 		}
+		// print_r($data['model']);
 		// print_r($subList);
 		// exit;
 		$data['modelSubKriteria'] = $subList;

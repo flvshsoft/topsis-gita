@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h4>Sub Kriteria</h4>
-                        <h1>15</h1>
+                        <h1>12</h1>
                     </div>
                     <div class="col-md-4">
                         <span class="fa fa-pie-chart" style="font-size:60px;color:#FFFFFF;margin-left:auto;"></span>
