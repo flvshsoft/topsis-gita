@@ -15,45 +15,47 @@ $warna5 = "#999999";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="icon" href="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg" type="image/x-icon" />
+    <link rel="icon" href="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg"
+        type="image/x-icon" />
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>/css/theme-default.css" />
-    <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>/css/fs.css" />
-    <link rel="stylesheet" type="text/css" id="theme" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    
+    <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>public/css/theme-default.css" />
+    <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>public/css/fs.css" />
+    <link rel="stylesheet" type="text/css" id="theme"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
     <style type="text/css">
-        .xn-openable ul li {
-            left: 25px;
-        }
+    .xn-openable ul li {
+        left: 25px;
+    }
 
-        #nav ul li {
-            padding: 1% 3% 1% 3%;
-        }
+    #nav ul li {
+        padding: 1% 3% 1% 3%;
+    }
 
-        #nav ul .active {
-            padding: 3%;
-        }
+    #nav ul .active {
+        padding: 3%;
+    }
 
-        #nav ul .active>a {
-            background: <?= $warna3 ?>;
-            border-radius: 10px;
-            color: #FFFFFF;
-        }
+    #nav ul .active>a {
+        background: <?=$warna3 ?>;
+        border-radius: 10px;
+        color: #FFFFFF;
+    }
 
-        #nav ul .active>a .xn-text {
-            color: #FFFFFF;
-        }
+    #nav ul .active>a .xn-text {
+        color: #FFFFFF;
+    }
 
-        #nav ul .active>a .fa {
-            color: #FFFFFF;
-        }
+    #nav ul .active>a .fa {
+        color: #FFFFFF;
+    }
 
-        #nav ul li>a .fa {
-            color: #33414e;
-            font-size: 18px;
-        }
+    #nav ul li>a .fa {
+        color: #33414e;
+        font-size: 18px;
+    }
     </style>
     <!-- EOF CSS INCLUDE -->
 </head>
@@ -68,8 +70,10 @@ $warna5 = "#999999";
             <ul class="x-navigation" style="background: <?= $warna4 ?>">
                 <li class="xn-logox" style="background: <?= $warna4 ?>">
                     <a href="#">
-                        <img src="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg" alt="Flashsoft Indonesia" width="50px" class="hidden-xs"/>
-                        &nbsp;&nbsp;<span style="color:<?= $warna3 ?>;display: nonex;font-weight:bold;font-size:18px;">Topsis</span>
+                        <img src="https://i.pinimg.com/564x/54/60/29/546029d3c298f3ccd896b409fc581a19.jpg"
+                            alt="Flashsoft Indonesia" width="50px" class="hidden-xs" />
+                        &nbsp;&nbsp;<span
+                            style="color:<?= $warna3 ?>;display: nonex;font-weight:bold;font-size:18px;">Topsis</span>
                     </a>
                     <a class="x-navigation-control"></a>
                 </li>
@@ -88,8 +92,10 @@ $warna5 = "#999999";
                                                             ?></div>
                         </div>
                         <div class="profile-controls" style="display: none;">
-                            <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                            <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                            <a href="pages-profile.html" class="profile-control-left"><span
+                                    class="fa fa-info"></span></a>
+                            <a href="pages-messages.html" class="profile-control-right"><span
+                                    class="fa fa-envelope"></span></a>
                         </div>
                     </div>
                 </li>
@@ -102,43 +108,53 @@ $warna5 = "#999999";
                     if (session('userData')['level_user'] == 'admin' || session('userData')['level_user'] == 1) {
                 ?>
 
-                        <li>
-                            <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/peminjam"><span class="fa fa-users"></span> <span class="xn-text">Peminjam</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/kriteria"><span class="fa fa-folder-o"></span> <span class="xn-text">Kriteria</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/sub-kriteria"><span class="fa fa-folder-open-o"></span> <span class="xn-text">Sub Kriteria</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/proses"><span class="fa fa-tasks"></span> <span class="xn-text">Proses</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/hasil"><span class="fa fa-file-text-o"></span> <span class="xn-text">Hasil</span></a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url() ?>/user"><span class="fa fa-user-circle"></span> <span class="xn-text">User</span></a>
-                        </li>
-                        <li>
-                            <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out" style="color:<?= $warna2 ?>;"></span><span class="xn-text">Logout</span></a>
-                        </li>
+                <li>
+                    <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span
+                            class="xn-text">Beranda</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/peminjam"><span class="fa fa-users"></span> <span
+                            class="xn-text">Peminjam</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/kriteria"><span class="fa fa-folder-o"></span> <span
+                            class="xn-text">Kriteria</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/sub-kriteria"><span class="fa fa-folder-open-o"></span> <span
+                            class="xn-text">Sub Kriteria</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/proses"><span class="fa fa-tasks"></span> <span
+                            class="xn-text">Proses</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/hasil"><span class="fa fa-file-text-o"></span> <span
+                            class="xn-text">Hasil</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>/user"><span class="fa fa-user-circle"></span> <span
+                            class="xn-text">User</span></a>
+                </li>
+                <li>
+                    <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"
+                            style="color:<?= $warna2 ?>;"></span><span class="xn-text">Logout</span></a>
+                </li>
 
 
-                    <?php
+                <?php
                     }
                 } else {
                     ?>
-                    <li>
-                        <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
-                    </li>
+                <li>
+                    <a href="<?= base_url() ?>/dashboard"><span class="fa fa-home"></span> <span
+                            class="xn-text">Beranda</span></a>
+                </li>
 
-                    <li>
-                        <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o"></span> <span class="xn-text">About</span></a>
-                    </li>
+                <li>
+                    <a href="<?= base_url() ?>/about"><span class="fa fa-newspaper-o"></span> <span
+                            class="xn-text">About</span></a>
+                </li>
                 <?php
                 }
 
@@ -155,16 +171,19 @@ $warna5 = "#999999";
         <div class="page-content">
 
             <!-- START X-NAVIGATION VERTICAL -->
-            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs" style="background: <?= $warna3 ?>">
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel hidden-xs"
+                style="background: <?= $warna3 ?>">
                 <!-- TOGGLE NAVIGATION -->
                 <li class="xn-icon-button">
-                    <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent" style="color:<?= $warna2 ?>;"></span></a>
+                    <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"
+                            style="color:<?= $warna2 ?>;"></span></a>
                 </li>
                 <!-- END TOGGLE NAVIGATION -->
 
                 <!-- POWER OFF -->
                 <li class="xn-icon-button pull-right last">
-                    <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out" style="color:<?= $warna2 ?>;"></span></a>
+                    <a href="#" title="Keluar" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"
+                            style="color:<?= $warna2 ?>;"></span></a>
                 </li>
                 <!-- END POWER OFF -->
 
@@ -236,42 +255,46 @@ $warna5 = "#999999";
 
     <!-- START SCRIPTS -->
     <!-- START PLUGINS -->
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/bootstrap/bootstrap.min.js"></script>
     <!-- END PLUGINS -->
 
     <!-- THIS PAGE PLUGINS -->
-    <script type='text/javascript' src='<?= base_url() ?>/js/plugins/icheck/icheck.min.js'></script>
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script type='text/javascript' src='<?= base_url() ?>public/js/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript"
+        src="<?= base_url() ?>public/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js">
+    </script>
 
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/bootstrap/bootstrap-timepicker.min.js">
+    </script>
 
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
     <!-- END THIS PAGE PLUGINS -->
 
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins/datatables/jquery.dataTables.min.js">
+    </script>
 
-    <script type="text/javascript" src="<?= base_url() ?>/js/actions.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/actions.js"></script>
     <!-- END THIS PAGE PLUGINS-->
 
 
     <!-- START TEMPLATE -->
-    <script type="text/javascript" src="<?= base_url() ?>/js/plugins.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/plugins.js"></script>
 
     <!-- END TEMPLATE -->
 
     <script>
-        $(function($) {
-            let url = window.location.href;
-            $('#nav ul li a').each(function() {
-                console.log(this.href)
-                if (this.href === url) {
-                    $(this).closest('li').addClass('active');
-                }
-            });
+    $(function($) {
+        let url = window.location.href;
+        $('#nav ul li a').each(function() {
+            console.log(this.href)
+            if (this.href === url) {
+                $(this).closest('li').addClass('active');
+            }
         });
+    });
     </script>
 
     <!-- END TEMPLATE -->
